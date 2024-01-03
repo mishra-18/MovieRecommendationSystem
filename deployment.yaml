@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moviesrecommendation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movie
+  template:
+    metadata:
+      labels:
+        app: movie
+    spec:
+      containers:
+      - name: moviesrs
+        image: gcr.io/grand-icon-409203/mrsapp:v1
+        ports:
+        - containerPort: 8501
